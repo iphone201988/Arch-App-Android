@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="bean"
+            type="com.tech.arch.data.model.BookMarkDataaaa" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg_button"
+        android:backgroundTint="@color/light_blue">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDiveSiteName"
+            style="@style/TextView.Semibold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{bean.siteName}"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/app_blue"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLocationName"
+            android:layout_width="0dp"
+            style="@style/TextView.Regular"
+            android:layout_height="wrap_content"
+            android:text="@{bean.location}"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/app_blue"
+            android:layout_marginTop="@dimen/_3sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvDiveSiteName"
+            app:layout_constraintStart_toStartOf="@id/tvDiveSiteName"
+            app:layout_constraintEnd_toEndOf="@id/tvDiveSiteName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCityName"
+            android:layout_width="0dp"
+            style="@style/TextView.Regular"
+            android:layout_height="wrap_content"
+            android:text="@{bean.city}"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/app_blue"
+            android:layout_marginTop="@dimen/_3sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvLocationName"
+            app:layout_constraintStart_toStartOf="@id/tvLocationName"
+            app:layout_constraintEnd_toEndOf="@id/tvLocationName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStateName"
+            android:layout_width="0dp"
+            style="@style/TextView.Regular"
+            android:layout_height="wrap_content"
+            android:text="@{bean.state}"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/app_blue"
+            android:layout_marginTop="@dimen/_3sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvCityName"
+            app:layout_constraintStart_toStartOf="@id/tvCityName"
+            app:layout_constraintEnd_toEndOf="@id/tvCityName"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMilesAway"
+            android:layout_width="0dp"
+            style="@style/TextView.Regular"
+            android:layout_height="wrap_content"
+            android:text="@{bean.miles}"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/app_blue"
+            android:layout_marginTop="@dimen/_3sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvStateName"
+            app:layout_constraintStart_toStartOf="@id/tvCityName"
+            app:layout_constraintEnd_toEndOf="@id/tvCityName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvScore"
+            android:layout_width="0dp"
+            style="@style/TextView.Regular"
+            android:layout_height="wrap_content"
+            android:text="@{bean.score}"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/app_blue"
+            android:layout_marginTop="@dimen/_3sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvMilesAway"
+            app:layout_constraintStart_toStartOf="@id/tvCityName"
+            app:layout_constraintEnd_toEndOf="@id/tvCityName"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

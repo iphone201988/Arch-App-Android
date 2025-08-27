@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.tech.arch.ui.home_screens.add_listing.AddListingFragmentVm" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainCons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:background="?attr/backgroundColor"
+        android:onClick="@{v -> vm.onClick(v)}"
+        android:paddingBottom="@dimen/_10sdp"
+        tools:context=".ui.home_screens.add_listing.AddListingFragment">
+
+
+        <fragment
+            android:id="@+id/mapView"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="@dimen/_25sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSearch"
+            style="@style/TextView.Regular"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_cards"
+            android:backgroundTint="?attr/customBackgroundTint"
+            android:hint="search here"
+            android:textColorHint="@color/app_blue"
+            android:textColor="@color/black"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toStartOf="@id/ivFilter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/homeProfile"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:src="@drawable/home_profile_icon"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:onClick="@{ v -> vm.onClick(v)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etSearch"
+            app:layout_constraintBottom_toBottomOf="@id/etSearch"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFilter"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:src="@drawable/iv_filter_icon"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/homeProfile"
+            app:layout_constraintBottom_toBottomOf="@id/homeProfile"
+            app:layout_constraintEnd_toStartOf="@id/homeProfile"/>
+
+
+
+
+            <ImageView
+                android:id="@+id/iv_folder"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:contentDescription="@string/rectangle"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:src="@drawable/iv_files"
+                android:elevation="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="@id/homeProfile"
+                app:layout_constraintTop_toTopOf="@id/linearItems"
+                app:layout_constraintEnd_toEndOf="@id/homeProfile" />
+
+
+            <ImageView
+                android:id="@+id/iv_save"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:contentDescription="@string/rectangle"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:src="@drawable/iv_save"
+                android:elevation="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/iv_folder"
+                app:layout_constraintStart_toStartOf="@id/iv_folder"
+                app:layout_constraintEnd_toEndOf="@id/iv_folder" />
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:contentDescription="@string/rectangle"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:src="@drawable/iv_delete"
+                android:elevation="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/iv_save"
+                app:layout_constraintStart_toStartOf="@id/iv_save"
+                app:layout_constraintEnd_toEndOf="@id/iv_save" />
+
+            <ImageView
+                android:id="@+id/iv_redo"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:contentDescription="@string/rectangle"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:src="@drawable/iv_redo"
+                android:elevation="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/iv_delete"
+                app:layout_constraintStart_toStartOf="@id/iv_delete"
+                app:layout_constraintEnd_toEndOf="@id/iv_delete" />
+
+            <ImageView
+                android:id="@+id/iv_undo"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:contentDescription="@string/rectangle"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:src="@drawable/iv_undo"
+                android:elevation="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/iv_redo"
+                app:layout_constraintStart_toStartOf="@id/iv_redo"
+                app:layout_constraintEnd_toEndOf="@id/iv_redo" />
+
+            <ImageView
+                android:id="@+id/iv_erase"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:elevation="@dimen/_10sdp"
+                android:contentDescription="@string/rectangle"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:src="@drawable/iv_erase"
+                app:layout_constraintTop_toBottomOf="@id/iv_undo"
+                app:layout_constraintStart_toStartOf="@id/iv_undo"
+                app:layout_constraintEnd_toEndOf="@id/iv_undo" />
+
+
+        <View
+            android:id="@+id/linearItems"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_cards"
+            android:backgroundTint="@color/app_blue"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="@id/iv_folder"
+            app:layout_constraintStart_toStartOf="@id/iv_folder"
+            app:layout_constraintTop_toBottomOf="@id/homeProfile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_erase"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOpen"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/iv_folder"
+            app:layout_constraintEnd_toStartOf="@id/linearItems"
+            app:layout_constraintBottom_toBottomOf="@id/iv_folder"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSave"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/iv_save"
+            app:layout_constraintEnd_toStartOf="@id/linearItems"
+            app:layout_constraintBottom_toBottomOf="@id/iv_save"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDelete"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/iv_delete"
+            app:layout_constraintEnd_toStartOf="@id/linearItems"
+            app:layout_constraintBottom_toBottomOf="@id/iv_delete"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRedo"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Redo"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/iv_redo"
+            app:layout_constraintEnd_toStartOf="@id/linearItems"
+            app:layout_constraintBottom_toBottomOf="@id/iv_redo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUndo"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Undo"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/iv_undo"
+            app:layout_constraintEnd_toStartOf="@id/linearItems"
+            app:layout_constraintBottom_toBottomOf="@id/iv_undo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEraser"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eraser"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/iv_erase"
+            app:layout_constraintEnd_toStartOf="@id/linearItems"
+            app:layout_constraintBottom_toBottomOf="@id/iv_erase"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/extendedDrop"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_34sdp"
+            app:layout_constraintTop_toBottomOf="@id/linearItems"
+            android:src="@drawable/iv_drop_bg"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:onClick="@{v -> vm.onClick(v)}"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="@id/linearItems"
+            app:layout_constraintEnd_toEndOf="@id/linearItems"/>
+
+
+
+        <View
+            android:id="@+id/linearItems2"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_cards"
+            android:backgroundTint="@color/app_blue"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@id/rvFilterCategory"
+            app:layout_constraintEnd_toEndOf="@id/iv_folder"
+            app:layout_constraintStart_toStartOf="@id/iv_folder"
+            app:layout_constraintTop_toBottomOf="@id/extendedDrop" />
+
+            <ImageView
+                android:id="@+id/up_arrow"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:contentDescription="@string/rectangle"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:src="@drawable/iv_up_arrow"
+                app:layout_constraintTop_toTopOf="@id/linearItems2"
+                app:layout_constraintStart_toStartOf="@id/linearItems2"
+                app:layout_constraintEnd_toEndOf="@id/linearItems2" />
+
+            <ImageView
+                android:id="@+id/iv_show_markers"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:contentDescription="@string/rectangle"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:src="@drawable/iv_three_line"
+                app:layout_constraintTop_toBottomOf="@id/up_arrow"
+                app:layout_constraintStart_toStartOf="@id/up_arrow"
+                app:layout_constraintEnd_toEndOf="@id/up_arrow" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFilterCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_category"
+                tools:itemCount="6"
+                app:layout_constraintTop_toBottomOf="@id/iv_show_markers"
+                app:layout_constraintStart_toStartOf="@id/iv_show_markers"
+                app:layout_constraintEnd_toEndOf="@id/iv_save"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMoreMarkers"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="More Markers"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/iv_show_markers"
+            app:layout_constraintEnd_toStartOf="@id/linearItems2"
+            app:layout_constraintBottom_toBottomOf="@id/iv_show_markers"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBoulder"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Boulder"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@+id/tvEntryPoint"
+            app:layout_constraintTop_toTopOf="@id/rvFilterCategory"
+            app:layout_constraintEnd_toStartOf="@id/linearItems2" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEntryPoint"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entry Point"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/tvHazard"
+            app:layout_constraintTop_toBottomOf="@id/tvBoulder"
+            app:layout_constraintEnd_toStartOf="@id/linearItems2" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHazard"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hazard"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@+id/tvParking"
+            app:layout_constraintTop_toBottomOf="@id/tvEntryPoint"
+            app:layout_constraintEnd_toStartOf="@id/linearItems2" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvParking"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parking"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/tvRestRoom"
+            app:layout_constraintTop_toBottomOf="@id/tvHazard"
+            app:layout_constraintEnd_toStartOf="@id/linearItems2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRestRoom"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rest room"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/tvSeaGrass"
+            app:layout_constraintTop_toBottomOf="@id/tvParking"
+            app:layout_constraintEnd_toStartOf="@id/linearItems2" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeaGrass"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sea grass"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@id/rvFilterCategory"
+            app:layout_constraintTop_toBottomOf="@id/tvRestRoom"
+            app:layout_constraintEnd_toStartOf="@id/linearItems2" />
+
+            <!--            <ImageView-->
+<!--                android:id="@+id/iv_coral"-->
+<!--                android:layout_width="@dimen/_18sdp"-->
+<!--                android:layout_height="@dimen/_18sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:background="@null"-->
+<!--                android:contentDescription="@string/rectangle"-->
+<!--                android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                android:src="@drawable/iv_corol" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_boulder"-->
+<!--                android:layout_width="@dimen/_18sdp"-->
+<!--                android:layout_height="@dimen/_18sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:background="@null"-->
+<!--                android:contentDescription="@string/rectangle"-->
+<!--                android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                android:src="@drawable/iv_boulder" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_caution"-->
+<!--                android:layout_width="@dimen/_18sdp"-->
+<!--                android:layout_height="@dimen/_18sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:background="@null"-->
+<!--                android:contentDescription="@string/rectangle"-->
+<!--                android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                android:src="@drawable/iv_caution" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_parking"-->
+<!--                android:layout_width="@dimen/_18sdp"-->
+<!--                android:layout_height="@dimen/_18sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:background="@null"-->
+<!--                android:contentDescription="@string/rectangle"-->
+
+<!--                android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                android:src="@drawable/iv_parking" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_entry"-->
+<!--                android:layout_width="@dimen/_18sdp"-->
+<!--                android:layout_height="@dimen/_18sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:background="@null"-->
+<!--                android:contentDescription="@string/rectangle"-->
+<!--                android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                android:src="@drawable/iv_entry" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_roommate"-->
+<!--                android:layout_width="@dimen/_18sdp"-->
+<!--                android:layout_height="@dimen/_18sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:background="@null"-->
+<!--                android:contentDescription="@string/rectangle"-->
+<!--                android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                android:src="@drawable/iv_restroom" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_130sdp"-->
+<!--        android:background="@drawable/bg_add_listing"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="@dimen/_20sdp"-->
+<!--        android:layout_height="@dimen/_20sdp"-->
+<!--        android:layout_marginStart="@dimen/_15sdp"-->
+<!--        android:layout_marginTop="@dimen/_15sdp"-->
+<!--        android:src="@drawable/iv_back"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/tvHeading"-->
+<!--        style="@style/TextView.Medium"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/_10sdp"-->
+<!--        android:text="@string/add_listing"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="@dimen/_22ssp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginHorizontal="@dimen/_15sdp"-->
+<!--        android:layout_marginTop="@dimen/_10sdp"-->
+<!--        android:layout_marginBottom="@dimen/_15sdp"-->
+<!--        android:backgroundTint="?attr/backgroundColor"-->
+<!--        android:background="@drawable/bg_cards"-->
+<!--        android:elevation="@dimen/_10sdp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tvHeading">-->
+
+
+<!--        <androidx.core.widget.NestedScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginHorizontal="@dimen/_15sdp"-->
+<!--            android:layout_marginBottom="@dimen/_10sdp"-->
+<!--            android:fillViewport="true"-->
+<!--            android:fitsSystemWindows="true"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/secondCons"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:onClick="@{v -> vm.onClick(v)}">-->
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/tvSubHeading"-->
+<!--                    style="@style/TextView.Regular"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginHorizontal="@dimen/_15sdp"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:text="@string/please_enter_your_listing_detail"-->
+<!--                    android:textColor="?attr/android:textColor"-->
+<!--                    android:textSize="@dimen/_16ssp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/tvTitle"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:text="@string/title"-->
+<!--                    android:textColor="@color/app_blue"-->
+<!--                    android:textSize="@dimen/_14ssp"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/tvSubHeading" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatEditText-->
+<!--                    android:id="@+id/etTitle"-->
+<!--                    style="@style/TextView.Regular"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:layout_marginTop="@dimen/_8sdp"-->
+<!--                    android:background="@drawable/bg_edit_text"-->
+<!--                    android:hint="Enter your title"-->
+<!--                    android:paddingTop="@dimen/_3sdp"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:paddingStart="@dimen/_45sdp"-->
+<!--                    android:paddingEnd="@dimen/_10sdp"-->
+<!--                    android:textColor="?attr/android:textColor"-->
+<!--                    android:textColorHint="?attr/android:textColorHint"-->
+<!--                    android:textSize="@dimen/_14ssp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/tvTitle"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/tvTitle" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:id="@+id/bgEdit"-->
+<!--                    android:layout_width="@dimen/_24sdp"-->
+<!--                    android:layout_height="@dimen/_24sdp"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:src="@drawable/icon_round_bg"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/etTitle"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/etTitle"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/etTitle" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:layout_width="@dimen/_12sdp"-->
+<!--                    android:layout_height="@dimen/_12sdp"-->
+<!--                    android:src="@drawable/iv_edit"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/bgEdit"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/bgEdit"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/bgEdit"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/bgEdit" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/tvLocation"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_15sdp"-->
+<!--                    android:text="@string/location"-->
+<!--                    android:textColor="@color/app_blue"-->
+<!--                    android:textSize="@dimen/_14ssp"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/etTitle"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/etTitle" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatEditText-->
+<!--                    android:id="@+id/etLocation"-->
+<!--                    style="@style/TextView.Regular"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:layout_marginTop="@dimen/_8sdp"-->
+<!--                    android:background="@drawable/bg_edit_text"-->
+<!--                    android:focusable="false"-->
+<!--                    android:hint="Enter your location"-->
+<!--                    android:paddingTop="@dimen/_3sdp"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                    android:paddingStart="@dimen/_45sdp"-->
+<!--                    android:paddingEnd="@dimen/_10sdp"-->
+<!--                    android:textColor="?attr/android:textColor"-->
+<!--                    android:textColorHint="?attr/android:textColorHint"-->
+<!--                    android:textSize="@dimen/_14ssp"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/etTitle"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/tvLocation"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/tvLocation" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:id="@+id/bgLocation"-->
+<!--                    android:layout_width="@dimen/_24sdp"-->
+<!--                    android:layout_height="@dimen/_24sdp"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:src="@drawable/icon_round_bg"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/etLocation"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/etLocation"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/etLocation" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:layout_width="@dimen/_12sdp"-->
+<!--                    android:layout_height="@dimen/_12sdp"-->
+<!--                    android:src="@drawable/iv_location"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/bgLocation"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/bgLocation"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/bgLocation"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/bgLocation" />-->
+
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/tvSelect"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_15sdp"-->
+<!--                    android:text="@string/select"-->
+<!--                    android:textColor="@color/app_blue"-->
+<!--                    android:textSize="@dimen/_14ssp"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/etLocation"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/etLocation" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatEditText-->
+<!--                    android:id="@+id/etSelect"-->
+<!--                    style="@style/TextView.Regular"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:layout_marginTop="@dimen/_8sdp"-->
+<!--                    android:background="@drawable/bg_edit_text"-->
+<!--                    android:focusable="false"-->
+<!--                    android:hint="Select"-->
+<!--                    android:paddingTop="@dimen/_3sdp"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                    android:paddingHorizontal="@dimen/_10sdp"-->
+<!--                    android:textColor="?attr/android:textColor"-->
+<!--                    android:textColorHint="?attr/android:textColorHint"-->
+<!--                    android:textSize="@dimen/_14ssp"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/etLocation"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/tvSelect"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/tvSelect" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:id="@+id/dropSelect"-->
+<!--                    android:layout_width="@dimen/_14sdp"-->
+<!--                    android:layout_height="@dimen/_14sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:onClick="@{v -> vm.onClick(v)}"-->
+<!--                    android:src="@drawable/iv_drop"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/etSelect"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/etSelect"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/etSelect" />-->
+
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/rvListing"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:background="@drawable/bg_cards"-->
+<!--                    android:backgroundTint="?attr/customBackgroundTint"-->
+<!--                    android:elevation="@dimen/_10sdp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/etSelect"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/etSelect"-->
+<!--                    tools:listitem="@layout/item_layout_listing" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/tvDescription"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_15sdp"-->
+<!--                    android:text="@string/description"-->
+<!--                    android:textColor="@color/app_blue"-->
+<!--                    android:textSize="@dimen/_14ssp"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/etSelect"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/etSelect" />-->
+
+
+<!--                <androidx.appcompat.widget.AppCompatEditText-->
+<!--                    android:id="@+id/etDescription"-->
+<!--                    style="@style/TextView.Regular"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="@dimen/_130sdp"-->
+<!--                    android:layout_marginTop="@dimen/_8sdp"-->
+<!--                    android:background="@drawable/bg_edit_text"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:hint="Description"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:maxLines="6"-->
+<!--                    android:overScrollMode="ifContentScrolls"-->
+<!--                    android:paddingHorizontal="@dimen/_10sdp"-->
+<!--                    android:paddingTop="@dimen/_10sdp"-->
+<!--                    android:textColor="?attr/android:textColor"-->
+<!--                    android:textColorHint="?attr/android:textColorHint"-->
+<!--                    android:textSize="@dimen/_14ssp"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/etSelect"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/tvDescription"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/tvDescription" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/tvSignUpBtn"-->
+<!--                    style="@style/TextView.Medium"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:layout_marginTop="@dimen/_20sdp"-->
+<!--                    android:background="@drawable/bg_button"-->
+<!--                    android:gravity="center"-->
+<!--                    android:onClick="@{v ->  vm.onClick(v)}"-->
+<!--                    android:text="Save"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="@dimen/_16ssp"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/etDescription"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/etDescription"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/etDescription" />-->
+
+
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        </androidx.core.widget.NestedScrollView>-->
+
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+</layout>

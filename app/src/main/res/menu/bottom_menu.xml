@@ -1,0 +1,38 @@
+<!-- bottom_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/location"
+        android:enabled="true"
+        android:icon="@drawable/location_selection"
+        android:title="" />
+
+    <item
+        android:id="@+id/event"
+        android:enabled="true"
+        android:icon="@drawable/events_selection"
+        android:title="" />
+    <item
+        android:id="@+id/addListing"
+        android:icon="@drawable/listing_selection"
+        android:title=""
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/shop"
+        android:icon="@drawable/shop_selection"
+        android:title=""
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/profile_selection"
+        android:title="" />
+
+
+
+
+</menu>
+
+    <!-- layout.xml -->

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="bean"
+            type="com.tech.arch.data.model.GetBookMarkApiResponse.Bookmark" />
+        <variable
+            name="callback"
+            type="com.tech.arch.ui.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{ v -> callback.onItemClick(v, bean,pos)}"
+        android:paddingVertical="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:backgroundTint="@color/light_blue"
+        android:background="@drawable/bg_button">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextView.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_black"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:text="@{bean.contributeId.name}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

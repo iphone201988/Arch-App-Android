@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:width="@dimen/_16sdp"
+        android:height="@dimen/_16sdp"
+        android:left="@dimen/_50sdp">
+        <bitmap
+            android:src="@drawable/iv_x" />
+    </item>
+
+</layer-list>

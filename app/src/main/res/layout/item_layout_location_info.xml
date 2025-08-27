@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="bean"
+            type="com.tech.arch.data.model.GetAllListApiResponse.Lists" />
+        
+        <variable
+            name="callback"
+            type="com.tech.arch.ui.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+        <variable
+            name="pos"
+            type="Integer" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consMain"
+        android:layout_width="@dimen/_160sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:elevation="@dimen/_4sdp"
+        android:onClick="@{ v -> callback.onItemClick(v,bean,pos)}"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/bg_cards"
+        android:backgroundTint="@color/backgroundTintColor"
+        android:layout_height="@dimen/_130sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/locationImage"
+            loadSimpleImage="@{bean.listCategoryId.image}"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@drawable/iv_temple"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/locationTitle"
+            style="@style/TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{bean.title}"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/locationImage"
+            app:layout_constraintTop_toTopOf="@id/locationImage"
+            app:layout_constraintBottom_toBottomOf="@id/locationImage"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/locationDes"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:text="@{bean.description}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            android:maxLines="4"
+            android:scrollbars="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toTopOf="@id/profileImage"
+            app:layout_constraintTop_toBottomOf="@id/locationImage"
+            app:layout_constraintStart_toStartOf="@id/locationImage"
+            app:layout_constraintEnd_toEndOf="@id/locationTitle"/>
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileImage"
+            circleImage="@{bean.userId.profileImage}"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/locationDes"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/personName"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{bean.userId.fullName}"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@id/profileImage"
+            app:layout_constraintBottom_toBottomOf="@id/profileImage"
+            app:layout_constraintStart_toEndOf="@id/profileImage"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

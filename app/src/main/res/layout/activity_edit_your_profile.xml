@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.tech.arch.ui.home_screens.edit_your_profile.EditYourProfileVm" />
+        <variable
+            name="bean"
+            type="com.tech.arch.data.model.GetProfileApiResponse.UserExists" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/iv_login_background"
+        tools:context=".ui.home_screens.edit_your_profile.EditYourProfile">
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:src="@drawable/iv_back_btn_white"
+        android:onClick="@{v -> vm.onClick(v)}"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHeading"
+        style="@style/TextView.Semibold"
+        android:textSize="@dimen/_14ssp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_your_profile"
+        android:textColor="@color/white"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toEndOf="@id/ivBack"
+        app:layout_constraintTop_toTopOf="@id/ivBack"
+        app:layout_constraintBottom_toBottomOf="@id/ivBack"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_round_cons"
+        android:backgroundTint="@color/backgroundTintColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBack">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileImage"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                circleImage="@{bean.profileImage}"
+                android:src="@drawable/iv_dummy"
+                app:strokeColor="@color/app_blue"
+                app:strokeWidth="2dp"
+                android:padding="@dimen/_5sdp"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                android:scaleType="centerCrop"
+                android:onClick="@{v -> vm.onClick(v)}"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivPicture"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:src="@drawable/ic_add_img"
+                android:onClick="@{v -> vm.onClick(v)}"
+                app:layout_constraintBottom_toBottomOf="@id/profileImage"
+                app:layout_constraintEnd_toEndOf="@id/profileImage" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedNameField"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:hint="Name"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            app:boxStrokeColor="@color/gray_white"
+            app:hintEnabled="true"
+            app:cursorColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:hintAnimationEnabled="false"
+            android:textColorHint="@color/gray_white"
+            app:expandedHintEnabled="false"
+            app:hintTextColor="@color/gray_white"
+            app:layout_constraintTop_toBottomOf="@id/profileImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{bean.fullName}"
+                android:textColor="@color/black"
+                android:hint="Enter your name"
+                android:singleLine="true"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedEmailField"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:hint="Email"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            app:boxStrokeColor="@color/gray_white"
+            app:hintEnabled="true"
+            app:cursorColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:hintAnimationEnabled="false"
+            android:textColorHint="@color/gray_white"
+            app:expandedHintEnabled="false"
+            app:hintTextColor="@color/gray_white"
+            app:layout_constraintTop_toBottomOf="@id/outlinedNameField"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{bean.email}"
+                android:textColor="@color/black"
+                android:singleLine="true"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUpdateBtn"
+                style="@style/TextView.Medium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/bg_button"
+                android:onClick="@{ v -> vm.onClick(v)}"
+                android:text="Update"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:gravity="center"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/outlinedEmailField"
+                app:layout_constraintEnd_toEndOf="@id/outlinedEmailField"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--    <com.google.android.material.imageview.ShapeableImageView-->
+<!--        android:id="@+id/profileImage"-->
+<!--        android:layout_width="@dimen/_70sdp"-->
+<!--        android:layout_height="@dimen/_70sdp"-->
+<!--        circleImage="@{bean.profileImage}"-->
+<!--        android:src="@drawable/iv_dummy"-->
+<!--        app:strokeColor="@color/app_blue"-->
+<!--        app:strokeWidth="2dp"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:onClick="@{v -> vm.onClick(v)}"-->
+<!--        android:layout_marginTop="@dimen/_20sdp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/viewLine"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/ivPicture"-->
+<!--        android:layout_width="@dimen/_18sdp"-->
+<!--        android:layout_height="@dimen/_18sdp"-->
+<!--        android:layout_marginEnd="@dimen/_3sdp"-->
+<!--        android:src="@drawable/ic_add_img"-->
+<!--        android:onClick="@{v -> vm.onClick(v)}"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/profileImage"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/profileImage" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/tvName"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Name"-->
+<!--        android:textColor="@color/app_blue"-->
+<!--        android:textSize="@dimen/_14ssp"-->
+<!--        android:layout_marginTop="@dimen/_15sdp"-->
+<!--        android:layout_marginHorizontal="@dimen/_15sdp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/profileImage"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+<!--    <androidx.appcompat.widget.AppCompatEditText-->
+<!--        android:id="@+id/etName"-->
+<!--        style="@style/TextView.Regular"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="@dimen/_40sdp"-->
+<!--        android:layout_marginTop="@dimen/_8sdp"-->
+<!--        android:background="@drawable/bg_edit_text"-->
+<!--        android:textColor="?attr/android:textColor"-->
+<!--        android:hint="Enter your name"-->
+<!--        android:paddingTop="@dimen/_3sdp"-->
+<!--        android:text="@{bean.fullName}"-->
+<!--        android:textSize="@dimen/_14ssp"-->
+<!--        android:textColorHint="@color/stroke_color"-->
+<!--        android:inputType="text"-->
+<!--        android:paddingHorizontal="@dimen/_10sdp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tvName"-->
+<!--        app:layout_constraintStart_toStartOf="@id/tvName"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/tvName"/>-->
+
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/tvEmail"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/email"-->
+<!--        android:textColor="@color/app_blue"-->
+<!--        android:textSize="@dimen/_14ssp"-->
+<!--        android:layout_marginTop="@dimen/_15sdp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/etName"-->
+<!--        app:layout_constraintStart_toStartOf="@id/etName"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/etName"/>-->
+
+<!--    <androidx.appcompat.widget.AppCompatEditText-->
+<!--        android:id="@+id/etEmail"-->
+<!--        style="@style/TextView.Regular"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="@dimen/_40sdp"-->
+<!--        android:layout_marginTop="@dimen/_8sdp"-->
+<!--        android:background="@drawable/bg_edit_text"-->
+<!--        android:textColor="?attr/android:textColor"-->
+<!--        android:hint="Enter your email"-->
+<!--        android:text="@{bean.email}"-->
+<!--        android:paddingTop="@dimen/_3sdp"-->
+<!--        android:focusable="false"-->
+<!--        android:textSize="@dimen/_14ssp"-->
+<!--        android:textColorHint="@color/stroke_color"-->
+<!--        android:inputType="textEmailAddress"-->
+<!--        android:paddingStart="@dimen/_45sdp"-->
+<!--        android:paddingEnd="@dimen/_25sdp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tvEmail"-->
+<!--        app:layout_constraintStart_toStartOf="@id/tvEmail"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/tvEmail"/>-->
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/bgEmail"-->
+<!--        android:layout_width="@dimen/_24sdp"-->
+<!--        android:layout_height="@dimen/_24sdp"-->
+<!--        android:src="@drawable/icon_round_bg"-->
+<!--        android:layout_marginStart="@dimen/_10sdp"-->
+<!--        app:layout_constraintTop_toTopOf="@id/etEmail"-->
+<!--        app:layout_constraintStart_toStartOf="@id/etEmail"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/etEmail"/>-->
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:layout_width="@dimen/_12sdp"-->
+<!--        android:layout_height="@dimen/_12sdp"-->
+<!--        android:src="@drawable/iv_email"-->
+<!--        android:tint="@color/white"-->
+<!--        app:layout_constraintTop_toTopOf="@id/bgEmail"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/bgEmail"-->
+<!--        app:layout_constraintStart_toStartOf="@id/bgEmail"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/bgEmail"/>-->
+
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/tvUpdateBtn"-->
+<!--        style="@style/TextView.Medium"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="@dimen/_40sdp"-->
+<!--        android:background="@drawable/bg_button"-->
+<!--        android:onClick="@{ v -> vm.onClick(v)}"-->
+<!--        android:text="Update"-->
+<!--        android:layout_marginBottom="@dimen/_20sdp"-->
+<!--        android:gravity="center"-->
+<!--        android:textSize="@dimen/_16ssp"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="@id/etEmail"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/etEmail"/>-->
+</layout>

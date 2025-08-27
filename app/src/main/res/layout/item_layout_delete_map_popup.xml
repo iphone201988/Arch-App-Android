@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.tech.arch.utils.BaseCustomDialog.Listener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/bg_button"
+        android:paddingBottom="@dimen/_20sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHeading"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_blue"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="@string/are_you_sure_you_want_to_delete_this_map"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCrossDelete"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:src="@drawable/iv_cross"
+            android:onClick="@{ v -> callback.onViewClick(v)}"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDeleteMap"
+            style="@style/TextView.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="Yes"
+            android:gravity="center"
+            android:onClick="@{ v -> callback.onViewClick(v)}"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/bg_button"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/tvCancelDelete"
+            app:layout_constraintTop_toBottomOf="@id/tvHeading"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCancelDelete"
+            style="@style/TextView.Regular"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="No"
+            android:background="@drawable/bg_button"
+            android:backgroundTint="@color/red_100"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/_12ssp"
+            android:onClick="@{ v -> callback.onViewClick(v)}"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/tvDeleteMap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvDeleteMap"
+            app:layout_constraintBottom_toBottomOf="@id/tvDeleteMap"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

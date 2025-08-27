@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="bean"
+            type="com.tech.arch.data.model.EventData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg_button"
+        android:backgroundTint="@color/light_blue">
+
+        <ImageView
+            android:id="@+id/iv_filled_star"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:src="@drawable/iv_filled_star"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/eventName"
+            style="@style/TextView.Semibold"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/app_blue"
+            android:text="@{bean.eventName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/iv_filled_star"
+            app:layout_constraintBottom_toBottomOf="@id/iv_filled_star"
+            app:layout_constraintStart_toEndOf="@id/iv_filled_star"/>
+
+        <ImageView
+            android:id="@+id/ivHost"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:src="@drawable/iv_person_icon"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/iv_filled_star"
+            app:layout_constraintStart_toStartOf="@id/iv_filled_star"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHostName"
+            style="@style/TextView.Regular"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/app_blue"
+            android:text="@{bean.hostName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivHost"
+            app:layout_constraintBottom_toBottomOf="@id/ivHost"
+            app:layout_constraintStart_toEndOf="@id/ivHost"/>
+
+
+        <ImageView
+            android:id="@+id/ivLocation"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:src="@drawable/iv_filled_loc"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/ivHost"
+            app:layout_constraintStart_toStartOf="@id/ivHost"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLocationName"
+            style="@style/TextView.Regular"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/app_blue"
+            android:text="@{bean.location}"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivLocation"
+            app:layout_constraintBottom_toBottomOf="@id/ivLocation"
+            app:layout_constraintStart_toEndOf="@id/ivLocation"/>
+
+        <ImageView
+            android:id="@+id/ivCalender"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:src="@drawable/iv_filled_cal"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/ivLocation"
+            app:layout_constraintStart_toStartOf="@id/ivLocation"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEventDate"
+            style="@style/TextView.Regular"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/app_blue"
+            android:text="@{bean.eventDate}"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivCalender"
+            app:layout_constraintBottom_toBottomOf="@id/ivCalender"
+            app:layout_constraintStart_toEndOf="@id/ivCalender"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

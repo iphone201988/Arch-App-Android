@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.auth.create_account.AccountLastStepActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.create_account.AccountSecondStepActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home_screens.setting_module.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.dummy_activity.MapDummyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home_screens.bookmark_module.BookmarkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home_screens.privacy_policy.PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.DummyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.home_screens.map_module.MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.reset_password.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.verify_account.VerifyAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.forgot_password.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home_screens.change_password.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home_screens.edit_your_profile.EditYourProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home_screens.HomeDashBoardActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.auth.create_account.CreateAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.login_module.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name=".ui.splash.WelcomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.base.permission.PermissionsActivity"
+            android:screenOrientation="fullSensor" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDL5lVBeuFRnfVf8oSdVcH8kRIYnlVRvOs" />
+    </application>
+
+</manifest>

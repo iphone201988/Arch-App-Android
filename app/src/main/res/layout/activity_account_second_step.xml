@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.tech.arch.ui.auth.create_account.CreateAccountActivityVm" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/iv_login_background"
+        tools:context=".ui.auth.create_account.AccountSecondStepActivity">
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:src="@drawable/iv_back_btn_white"
+            android:onClick="@{v -> vm.onClick(v)}"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@id/tvSignUp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvSignUp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSignUp"
+        style="@style/TextView.Semibold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:text="@string/sign_up3"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_back"/>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:onClick="@{ v -> vm.onClick(v)}"
+        android:background="@drawable/bg_round_cons"
+        android:backgroundTint="@color/backgroundTintColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSignUp">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        app:layout_constraintBottom_toTopOf="@id/tvNextBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/_20sdp">
+
+
+
+        <ImageView
+            android:id="@+id/progressTwo"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="50dp"
+            android:src="@drawable/iv_progress_two"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/tvAccountSpecificDetails"
+            style="@style/TextView.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_specific_details"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/app_blue"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintTop_toBottomOf="@id/progressTwo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consIndividual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvAccountSpecificDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedCertification"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Certifications (Optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvCertification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:paddingEnd="@dimen/_30sdp"
+                    android:onClick="@{v -> vm.onClick(v)}"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCertification"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:src="@drawable/iv_drop_icon"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:tint="@color/black"
+                android:onClick="@{v -> vm.onClick(v)}"
+                app:layout_constraintTop_toTopOf="@id/outlinedCertification"
+                app:layout_constraintEnd_toEndOf="@id/outlinedCertification"
+                app:layout_constraintBottom_toBottomOf="@id/outlinedCertification"/>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCertification"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_cons"
+                android:backgroundTint="@color/popup_color"
+                android:elevation="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/outlinedCertification"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/outlinedCertification"
+                app:layout_constraintTop_toBottomOf="@id/outlinedCertification"
+                tools:listitem="@layout/item_layout_certification_data" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedDiveHistory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Dive History (Optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outlinedCertification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvDiveHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedAreaInterested"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="What area you interested in?"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedDiveHistory"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvAreaInterested"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedMapInteraction"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Select Your Map Interaction"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedAreaInterested"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvMapInteraction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:onClick="@{v -> vm.onClick(v)}"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivMapInteraction"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:src="@drawable/iv_drop_icon"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:tint="@color/black"
+                android:onClick="@{v -> vm.onClick(v)}"
+                app:layout_constraintTop_toTopOf="@id/outLinedMapInteraction"
+                app:layout_constraintEnd_toEndOf="@id/outLinedMapInteraction"
+                app:layout_constraintBottom_toBottomOf="@id/outLinedMapInteraction"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMapInteraction"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_cons"
+                android:backgroundTint="@color/popup_color"
+                android:elevation="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/outLinedMapInteraction"
+                app:layout_constraintStart_toStartOf="@id/outLinedMapInteraction"
+                app:layout_constraintTop_toBottomOf="@id/outLinedMapInteraction"
+                tools:listitem="@layout/item_layout_account_type" />
+
+                <CheckBox
+                    android:id="@+id/tvCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/outLinedMapInteraction"
+                    app:layout_constraintStart_toStartOf="@id/outLinedMapInteraction"/>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTerms"
+                    style="@style/TextView.Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_11ssp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="-5dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/i_agree_to_the_terms_of_service_and_privacy_policy"
+                    app:layout_constraintTop_toBottomOf="@id/outLinedMapInteraction"
+                    app:layout_constraintStart_toEndOf="@id/tvCheckBox"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consBusiness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvAccountSpecificDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedBusinessName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Business Name"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvBusinessName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedBusinessType"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Business Type"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedBusinessName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvBusinessType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:onClick="@{v -> vm.onClick(v)}"
+                    android:clickable="false"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBusinessType"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_cons"
+                android:backgroundTint="@color/popup_color"
+                android:elevation="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/outLinedBusinessType"
+                app:layout_constraintStart_toStartOf="@id/outLinedBusinessType"
+                app:layout_constraintTop_toBottomOf="@id/outLinedBusinessType"
+                tools:listitem="@layout/item_layout_account_type" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedBusinessPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Public Business Phone Number"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedBusinessType"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedContactEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Public Contact Email"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedBusinessPhoneNumber"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvPublicContactEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Website"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedContactEmail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvWebsite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedSocialMedia"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Social Media"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedWebsite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvSocialMedia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvServiceOffered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Services Offered"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedSocialMedia"
+                app:layout_constraintStart_toStartOf="@id/outLinedSocialMedia"/>
+
+
+            <LinearLayout
+                android:id="@+id/checkBoxGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/tvServiceOffered"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <CheckBox
+                    android:id="@+id/cbRentals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rentals"
+                    android:buttonTint="@color/app_blue" />
+
+                <CheckBox
+                    android:id="@+id/cbLessons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lessons"
+                    android:buttonTint="@color/app_blue" />
+
+                <CheckBox
+                    android:id="@+id/cbTours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tours"
+                    android:buttonTint="@color/app_blue" />
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedAddress"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Address"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/checkBoxGroup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedHourOfOperation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Hours of operation (optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvHourOfOperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedHostedEvents"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Hosted Events (optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedHourOfOperation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvHostedEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedRoleOfBusiness"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="Your Role and Business"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedHostedEvents"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvRoleOfBusiness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/tvCheckBoxBusiness"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/outLinedRoleOfBusiness"
+                app:layout_constraintStart_toStartOf="@id/outLinedRoleOfBusiness"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTermsBusiness"
+                style="@style/TextView.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11ssp"
+                android:textColor="@color/black"
+                android:layout_marginStart="-5dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/i_agree_to_the_terms_of_service_and_privacy_policy"
+                app:layout_constraintTop_toBottomOf="@id/outLinedRoleOfBusiness"
+                app:layout_constraintStart_toEndOf="@id/tvCheckBoxBusiness"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvAccountSpecificDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedGroupName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Group Name"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvGroupName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedContactEmailGroup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Public Contact Email (optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedGroupName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvContactEmailGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedTypeOfGroup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Type of Group"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedContactEmailGroup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvTypeOfGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGroupType"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_cons"
+                android:backgroundTint="@color/popup_color"
+                android:elevation="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/outLinedTypeOfGroup"
+                app:layout_constraintStart_toStartOf="@id/outLinedTypeOfGroup"
+                app:layout_constraintTop_toBottomOf="@id/outLinedTypeOfGroup"
+                tools:listitem="@layout/item_layout_account_type" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedNumberOfMembers"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Number of Members (optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedTypeOfGroup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvNumberOfMember"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedHostedEventGroup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Hosted Events (optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedNumberOfMembers"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvHostedEventsGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedGroupMembers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Group Members &amp; Roles (optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedHostedEventGroup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvGroupMembers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_90sdp"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedWebsiteGroup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Website (optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedGroupMembers"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvWebsiteGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outLinedSocialMediaGroup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:hint="Social Media (optional)"
+                app:boxStrokeColor="@color/gray_white"
+                app:hintEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cursorColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:hintAnimationEnabled="false"
+                android:textColorHint="@color/gray_white"
+                app:expandedHintEnabled="false"
+                app:hintTextColor="@color/gray_white"
+                app:layout_constraintTop_toBottomOf="@id/outLinedWebsiteGroup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvSocialMediaGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvIsGroupOpen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/gray_white"
+                android:text="@string/is_the_group_open_to_new_members"
+                app:layout_constraintTop_toBottomOf="@id/outLinedSocialMediaGroup"/>
+
+            <RadioGroup
+                android:id="@+id/radioNewMember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tvIsGroupOpen"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <RadioButton
+                    android:id="@+id/rbYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:buttonTint="@color/app_blue"
+                    />
+
+                <RadioButton
+                    android:id="@+id/rbNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:buttonTint="@color/app_blue"
+                    />
+
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/tvCheckBoxGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:translationX="-10dp"
+                app:layout_constraintTop_toBottomOf="@id/radioNewMember"
+                app:layout_constraintStart_toStartOf="@id/radioNewMember"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTermsGroup"
+                style="@style/TextView.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11ssp"
+                android:textColor="@color/black"
+                android:layout_marginStart="-10dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/i_agree_to_the_terms_of_service_and_privacy_policy"
+                app:layout_constraintTop_toBottomOf="@id/radioNewMember"
+                app:layout_constraintStart_toEndOf="@id/tvCheckBoxGroup"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNextBtn"
+            style="@style/TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_button"
+            android:text="Next"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:onClick="@{v -> vm.onClick(v)}"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:gravity="center"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

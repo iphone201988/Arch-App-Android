@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="bean"
+            type="com.tech.arch.data.model.Certification" />
+        <variable
+            name="callback"
+            type="com.tech.arch.ui.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+        <variable
+            name="pos"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{v -> callback.onItemClick(v, bean, pos)}"
+        android:padding="@dimen/_5sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSelection"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:src='@{bean.isSelected ? @drawable/iv_selected_image : @drawable/iv_deselected_image}'
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+        <TextView
+            android:id="@+id/heading"
+            style="@style/TextView.Regular"
+            android:textSize="@dimen/_12ssp"
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:text="@{bean.certificate}"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivSelection"
+            app:layout_constraintStart_toEndOf="@id/ivSelection"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

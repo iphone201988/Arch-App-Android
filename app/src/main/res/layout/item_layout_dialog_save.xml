@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.tech.arch.utils.BaseCustomDialog.Listener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:paddingBottom="@dimen/_20sdp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/bg_button">
+
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSave"
+                    style="@style/TextView.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/app_blue"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivCross"
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:src="@drawable/iv_cross"
+                    android:onClick="@{ v -> callback.onViewClick(v)}"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedMapNameField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="Map Nane"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/tvSave"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvMapName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:singleLine="true"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedLocationField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="Location"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedMapNameField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvLocationName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:singleLine="true"
+                        />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/locationCard"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_160sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/outlinedLocationField"
+                    app:layout_constraintStart_toStartOf="@id/outlinedLocationField"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedLocationField">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvEnterLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_layout_location" />
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedMaxDepthField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="Max. Depth"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedLocationField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvMaxDepth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedVisibilityField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="Average Visibility"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedMaxDepthField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvAverageVisibility"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:singleLine="true"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedEntryTypeField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="Entry Type"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedVisibilityField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvEntryType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:singleLine="true"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedCompositionField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="Bottom Composition"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedEntryTypeField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvComposition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:singleLine="true"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedAquaticLifeField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="Aquatic Life"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedCompositionField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvAquaticLife"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:singleLine="true"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedLikeDislikeDiveField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:hint="Like/Dislike Dive"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedAquaticLifeField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvLikeDislike"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{v -> callback.onViewClick(v)}"
+                        android:focusable="false"
+                        android:textColor="@color/black"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/ivDrop"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:src="@drawable/iv_drop"
+                    android:backgroundTint="@color/black"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="@id/outlinedLikeDislikeDiveField"
+                    app:layout_constraintBottom_toBottomOf="@id/outlinedLikeDislikeDiveField"
+                    app:layout_constraintEnd_toEndOf="@id/outlinedLikeDislikeDiveField"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvLike"
+                    android:layout_width="0dp"
+                    android:background="@drawable/bg_button"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    tools:listitem="@layout/item_layout_like_dislike"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedLikeDislikeDiveField"
+                    app:layout_constraintStart_toStartOf="@id/outlinedLikeDislikeDiveField"
+                    app:layout_constraintEnd_toEndOf="@id/outlinedLikeDislikeDiveField"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedNotesField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_90sdp"
+                    android:hint="Notes (optional)"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    app:boxStrokeColor="@color/dark_gray"
+                    app:hintEnabled="true"
+                    android:gravity="top|start"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:singleLine="false"
+                    android:overScrollMode="always"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    app:cursorColor="@color/black"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:hintAnimationEnabled="false"
+                    android:textColorHint="@color/dark_gray"
+                    app:expandedHintEnabled="false"
+                    app:hintTextColor="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedLikeDislikeDiveField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tvNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:maxLines="5"
+                        android:textColor="@color/black"
+                        android:gravity="top|start"
+                      />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupOptions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedNotesField"
+                    app:layout_constraintStart_toStartOf="@id/outlinedNotesField"
+                    app:layout_constraintEnd_toEndOf="@id/outlinedNotesField">
+
+                    <RadioButton
+                        android:id="@+id/tvSaveToApp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save to app" />
+
+                    <RadioButton
+                        android:id="@+id/tvPostOnline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Post Online" />
+
+                    <RadioButton
+                        android:id="@+id/tvShare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share" />
+
+
+
+                </RadioGroup>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSaveBtn"
+                    style="@style/TextView.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/bg_button"
+                    android:text="Save"
+                    android:onClick="@{ v -> callback.onViewClick(v)}"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/radioGroupOptions"
+                    app:layout_constraintStart_toStartOf="@id/outlinedNotesField"
+                    app:layout_constraintEnd_toEndOf="@id/outlinedNotesField"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

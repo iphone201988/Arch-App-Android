@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.tech.arch.ui.auth.verify_account.VerifyAccountActivityVm" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/iv_login_background"
+        tools:context=".ui.auth.verify_account.VerifyAccountActivity">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:src="@drawable/iv_back_btn_white"
+            android:onClick="@{v -> vm.onClick(v)}"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_round_cons"
+        android:backgroundTint="@color/backgroundTintColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_back">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVerifyPassword"
+            style="@style/TextView.Header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verify_to_reset_password"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_22ssp"
+            android:layout_marginTop="@dimen/_40sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/verifyDes"
+            style="@style/TextView.Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_40sdp"
+            android:text="@string/enter_the_verification_code_we_just_sent_on_your_email_address"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tvVerifyPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <LinearLayout
+            android:id="@+id/otpLoyout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:weightSum="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verifyDes">
+
+            <EditText
+                android:id="@+id/otpET1"
+                style="@style/TextView.Header"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:hint="-"
+                android:textColorHint="@color/white"
+                android:textColor="?attr/android:textColor"
+                android:background="@drawable/bg_otp"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="@dimen/_16ssp" />
+
+
+            <EditText
+                android:id="@+id/otpET2"
+                style="@style/TextView.Header"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:hint="-"
+                android:textColor="?attr/android:textColor"
+                android:textColorHint="@color/white"
+                android:background="@drawable/bg_otp"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="@dimen/_16ssp" />
+
+            <EditText
+                android:id="@+id/otpET3"
+                style="@style/TextView.Header"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:hint="-"
+                android:textColorHint="@color/white"
+                android:textColor="?attr/android:textColor"
+                android:background="@drawable/bg_otp"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="@dimen/_16ssp" />
+
+            <EditText
+                android:id="@+id/otpET4"
+                style="@style/TextView.Header"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:hint="-"
+                android:layout_weight="1"
+                android:textColorHint="@color/white"
+                android:textColor="?attr/android:textColor"
+                android:background="@drawable/bg_otp"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="@dimen/_16ssp" />
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVerifyBtn"
+            style="@style/TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_button"
+            android:onClick="@{ v -> vm.onClick(v)}"
+            android:text="@string/verify"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/tvVerifyPassword"
+            app:layout_constraintEnd_toEndOf="@id/tvVerifyPassword"
+            app:layout_constraintTop_toBottomOf="@id/otpLoyout"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/receiveCode"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:text="@string/didn_t_you_receive_any_code"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvVerifyBtn"
+            app:layout_constraintStart_toStartOf="@id/tvVerifyPassword"
+            app:layout_constraintEnd_toEndOf="@id/tvVerifyBtn"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resendCode"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_blue"
+            android:textSize="@dimen/_12ssp"
+            android:text="@string/re_send_code"
+            android:onClick="@{v -> vm.onClick(v)}"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/receiveCode"
+            app:layout_constraintStart_toStartOf="@id/receiveCode"
+            app:layout_constraintEnd_toEndOf="@id/receiveCode"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

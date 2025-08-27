@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_60sdp"
+        android:background="@drawable/iv_login_background"
+        tools:context=".ui.home_screens.shop_module.ShopFragment">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHeading"
+        style="@style/TextView.Semibold"
+        android:textSize="@dimen/_14ssp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shop"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/bg_round_cons"
+        android:backgroundTint="@color/backgroundTintColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeading">
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/_20sdp">
+        
+        
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvChooseYourPlan"
+            style="@style/TextView.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_your_plan"
+            android:textColor="@color/heading_color"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/referralStatus"
+            android:layout_width="0dp"
+            style="@style/TextView.Regular"
+            android:layout_height="wrap_content"
+            android:text="@string/you_have_2_free_months_remaining_from_referrals"
+            android:textColor="@color/heading_color"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:background="@drawable/bg_button"
+            android:backgroundTint="@color/red_20"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_14ssp"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvChooseYourPlan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consRefer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
+            android:backgroundTint="@color/light_blue"
+            app:layout_constraintStart_toStartOf="@id/referralStatus"
+            app:layout_constraintEnd_toEndOf="@id/referralStatus"
+            app:layout_constraintTop_toBottomOf="@id/referralStatus">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvReferFriends"
+                style="@style/TextView.Semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/refer_friends_get_it_free"
+                android:textColor="@color/blue_1"
+                android:textSize="@dimen/_14ssp"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDescription"
+                style="@style/TextView.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/color_black"
+                android:text="@string/when_a_friend_you_invite_goes_premium_your_next_month_will_be_free"
+                app:layout_constraintTop_toBottomOf="@id/tvReferFriends"
+                app:layout_constraintStart_toStartOf="@id/tvReferFriends"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSubscriptionPlans"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_layout_subscription"
+            app:layout_constraintTop_toBottomOf="@id/consRefer"
+            app:layout_constraintStart_toStartOf="@id/consRefer"
+            app:layout_constraintEnd_toEndOf="@id/consRefer"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGroupPlans"
+            style="@style/TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_button"
+            android:text="@string/group_plans"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/rvSubscriptionPlans"
+            app:layout_constraintStart_toStartOf="@id/rvSubscriptionPlans"
+            app:layout_constraintEnd_toEndOf="@id/rvSubscriptionPlans"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCancelPayment"
+            style="@style/TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_button_stroke"
+            android:text="@string/cancel_payment_plan"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/app_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvGroupPlans"
+            app:layout_constraintStart_toStartOf="@id/tvGroupPlans"
+            app:layout_constraintEnd_toEndOf="@id/tvGroupPlans"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

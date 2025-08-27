@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="bean"
+            type="com.tech.arch.data.model.SubscriptionData" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg_button"
+        android:backgroundTint="@color/light_blue">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubscriptionStatus"
+            style="@style/TextView.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{bean.subscriptionStatus}"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/app_blue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPriceSubscription"
+            style="@style/TextView.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{bean.price}"
+            android:textColor="@color/app_blue"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintTop_toTopOf="@id/tvSubscriptionStatus"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTimePeriod"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{bean.subscriptionType}"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/app_blue"
+            app:layout_constraintTop_toBottomOf="@id/tvPriceSubscription"
+            app:layout_constraintEnd_toEndOf="@id/tvPriceSubscription" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDescription"
+            style="@style/TextView.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_12ssp"
+            android:text="@{bean.description}"
+            app:layout_constraintTop_toBottomOf="@id/tvSubscriptionStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

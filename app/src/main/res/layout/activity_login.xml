@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.tech.arch.ui.auth.login_module.LoginActivityVm" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/iv_login_background"
+        tools:context=".ui.auth.login_module.LoginActivity">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSignIn"
+            style="@style/TextView.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14ssp"
+            android:text="@string/sign_in"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/bg_round_cons"
+            android:backgroundTint="@color/backgroundTintColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSignIn">
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:fitsSystemWindows="true"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="@dimen/_20sdp">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDes"
+                        style="@style/TextView.Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/please_enter_your_detail_to_login"
+                        android:textColor="@color/app_blue"
+                        android:textSize="@dimen/_14ssp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/outlinedEmailField"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:hint="Email"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        app:boxStrokeColor="@color/gray_white"
+                        app:hintEnabled="true"
+                        app:cursorColor="@color/black"
+                        app:boxBackgroundMode="outline"
+                        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                        app:hintAnimationEnabled="false"
+                        android:textColorHint="@color/gray_white"
+                        app:expandedHintEnabled="false"
+                        app:hintTextColor="@color/gray_white"
+                        app:layout_constraintTop_toBottomOf="@id/tvDes"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tvEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:singleLine="true"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/outlinedPasswordField"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:hint="Password"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:boxStrokeColor="@color/gray_white"
+                        app:hintEnabled="true"
+                        app:cursorColor="@color/black"
+                        app:boxBackgroundMode="outline"
+                        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                        app:hintAnimationEnabled="false"
+                        android:textColorHint="@color/gray_white"
+                        app:expandedHintEnabled="false"
+                        app:hintTextColor="@color/gray_white"
+                        app:layout_constraintTop_toBottomOf="@id/outlinedEmailField"
+                        app:layout_constraintStart_toStartOf="@id/outlinedEmailField"
+                        app:layout_constraintEnd_toEndOf="@id/outlinedEmailField"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:inputType="textPassword"
+                            android:singleLine="true"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/showPassword"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:src="@drawable/iv_hide_password"
+                        android:tint="@color/black"
+                        android:onClick="@{v -> vm.onClick(v)}"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintTop_toTopOf="@id/outlinedPasswordField"
+                        app:layout_constraintEnd_toEndOf="@id/outlinedPasswordField"
+                        app:layout_constraintBottom_toBottomOf="@id/outlinedPasswordField"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvForgotPassword"
+                        style="@style/TextView.Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:onClick="@{v -> vm.onClick(v)}"
+                        android:text="@string/forgot_pass"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="@color/app_blue"
+                        app:layout_constraintEnd_toEndOf="@id/outlinedPasswordField"
+                        app:layout_constraintTop_toBottomOf="@id/outlinedPasswordField" />
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvLoginBtn"
+                                style="@style/TextView.Medium"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:background="@drawable/bg_button"
+                                android:text="@string/sign_in"
+                                android:onClick="@{v -> vm.onClick(v)}"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:gravity="center"
+                                android:textSize="@dimen/_14ssp"
+                                android:textColor="@color/white"
+                                app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
+                                app:layout_constraintStart_toStartOf="@id/outlinedPasswordField"
+                                app:layout_constraintEnd_toEndOf="@id/outlinedPasswordField"/>
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/dontHaveAccount"
+                                style="@style/TextView.Regular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/gray_white"
+                                android:textSize="@dimen/_14ssp"
+                                android:layout_marginEnd="@dimen/_30sdp"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                app:layout_constraintStart_toStartOf="@id/tvLoginBtn"
+                                app:layout_constraintEnd_toEndOf="@id/tvLoginBtn"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:text="@string/don_t_have_an_account"/>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/signUp"
+                                style="@style/TextView.Medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sign_up3"
+                                android:onClick="@{v -> vm.onClick(v)}"
+                                android:layout_marginStart="@dimen/_3sdp"
+                                android:textSize="@dimen/_12ssp"
+                                android:textColor="@color/app_blue"
+                                app:layout_constraintStart_toEndOf="@id/dontHaveAccount"
+                                app:layout_constraintTop_toTopOf="@id/dontHaveAccount"
+                                app:layout_constraintBottom_toBottomOf="@id/dontHaveAccount"/>
+
+
+<!--                    <View-->
+<!--                        android:id="@+id/viewLine1"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="1dp"-->
+<!--                        android:layout_marginHorizontal="@dimen/_10sdp"-->
+<!--                        android:layout_marginTop="@dimen/_40sdp"-->
+<!--                        android:background="@color/black"-->
+<!--                        app:layout_constraintEnd_toEndOf="@id/tvLoginBtn"-->
+<!--                        app:layout_constraintStart_toStartOf="@id/tvLoginBtn"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/dontHaveAccount" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:id="@+id/tvOrWith"-->
+<!--                        style="@style/TextView.Regular"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@color/backgroundTintColor"-->
+<!--                        android:paddingHorizontal="@dimen/_8sdp"-->
+<!--                        android:text="@string/or_sign_in_with"-->
+<!--                        android:textColor="@color/gray_white"-->
+<!--                        android:textSize="@dimen/_12ssp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@id/viewLine1"-->
+<!--                        app:layout_constraintEnd_toEndOf="@id/viewLine1"-->
+<!--                        app:layout_constraintStart_toStartOf="@id/viewLine1"-->
+<!--                        app:layout_constraintTop_toTopOf="@id/viewLine1" />-->
+
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:id="@+id/tvGoogleLogin"-->
+<!--                        style="@style/TextView.Regular"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="@dimen/_40sdp"-->
+<!--                        android:layout_marginTop="@dimen/_20sdp"-->
+<!--                        android:background="@drawable/bg_edit_text"-->
+<!--                        android:drawableStart="@drawable/layer_list_google"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingRight="@dimen/_30sdp"-->
+<!--                        android:onClick="@{v-> vm.onClick(v)}"-->
+<!--                        android:paddingStart="@dimen/_16sdp"-->
+<!--                        android:text="@string/sign_in_with_google"-->
+<!--                        android:textColor="@color/dark_gray"-->
+<!--                        android:textSize="@dimen/_12ssp"-->
+<!--                        app:layout_constraintEnd_toEndOf="@+id/tvLoginBtn"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/tvLoginBtn"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/tvOrWith" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:id="@+id/tvFacebookLogin"-->
+<!--                        style="@style/TextView.Regular"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="@dimen/_40sdp"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:background="@drawable/bg_edit_text"-->
+<!--                        android:drawableStart="@drawable/layer_list_facebook"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingRight="@dimen/_30sdp"-->
+<!--                        android:onClick="@{v-> vm.onClick(v)}"-->
+<!--                        android:paddingStart="@dimen/_16sdp"-->
+<!--                        android:text="@string/sign_in_with_facebook"-->
+<!--                        android:textColor="@color/dark_gray"-->
+<!--                        android:textSize="@dimen/_12ssp"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/tvGoogleLogin"-->
+<!--                        app:layout_constraintStart_toStartOf="@id/tvGoogleLogin"-->
+<!--                        app:layout_constraintEnd_toEndOf="@id/tvGoogleLogin"/>-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:id="@+id/tvTwitterLogin"-->
+<!--                        style="@style/TextView.Regular"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="@dimen/_40sdp"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:background="@drawable/bg_edit_text"-->
+<!--                        android:drawableStart="@drawable/layer_list_x"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingRight="@dimen/_30sdp"-->
+<!--                        android:onClick="@{v-> vm.onClick(v)}"-->
+<!--                        android:paddingStart="@dimen/_16sdp"-->
+<!--                        android:text="@string/sign_in_with_x"-->
+<!--                        android:textColor="@color/dark_gray"-->
+<!--                        android:textSize="@dimen/_12ssp"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/tvFacebookLogin"-->
+<!--                        app:layout_constraintStart_toStartOf="@id/tvFacebookLogin"-->
+<!--                        app:layout_constraintEnd_toEndOf="@id/tvFacebookLogin"/>-->
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <!--        <androidx.appcompat.widget.AppCompatTextView-->
+    <!--            android:id="@+id/tvLogin"-->
+    <!--            style="@style/TextView.Header"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/login"-->
+    <!--            android:textColor="?attr/android:textColor"-->
+    <!--            android:layout_marginTop="@dimen/_15sdp"-->
+    <!--            android:textSize="@dimen/_24ssp"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"/>-->
+
+    <!--        <androidx.appcompat.widget.AppCompatTextView-->
+    <!--            android:id="@+id/tvDes"-->
+    <!--            style="@style/TextView.Regular"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/please_enter_your_detail_to_login"-->
+    <!--            android:textSize="@dimen/_14ssp"-->
+    <!--            android:textColor="?attr/android:textColor"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/tvLogin"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"/>-->
+
+    <!--            <androidx.appcompat.widget.AppCompatTextView-->
+    <!--                android:id="@+id/tvEmail"-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="@string/email"-->
+    <!--                android:textColor="@color/app_blue"-->
+    <!--                android:textSize="@dimen/_14ssp"-->
+    <!--                android:layout_marginTop="@dimen/_20sdp"-->
+    <!--                android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/tvDes"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"/>-->
+
+    <!--            <androidx.appcompat.widget.AppCompatEditText-->
+    <!--                android:id="@+id/etEmail"-->
+    <!--                style="@style/TextView.Regular"-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="@dimen/_40sdp"-->
+    <!--                android:layout_marginTop="@dimen/_8sdp"-->
+    <!--                android:background="@drawable/bg_edit_text"-->
+    <!--                android:hint="Enter your email"-->
+    <!--                android:paddingTop="@dimen/_3sdp"-->
+    <!--                android:textColor="?attr/android:textColor"-->
+    <!--                android:textSize="@dimen/_14ssp"-->
+    <!--                android:textColorHint="?attr/android:textColorHint"-->
+    <!--                android:inputType="textEmailAddress"-->
+    <!--                android:paddingStart="@dimen/_45sdp"-->
+    <!--                android:paddingEnd="@dimen/_25sdp"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/tvEmail"-->
+    <!--                app:layout_constraintStart_toStartOf="@id/tvEmail"-->
+    <!--                app:layout_constraintEnd_toEndOf="@id/tvEmail"/>-->
+
+    <!--            <androidx.appcompat.widget.AppCompatImageView-->
+    <!--                android:id="@+id/bgEmail"-->
+    <!--                android:layout_width="@dimen/_24sdp"-->
+    <!--                android:layout_height="@dimen/_24sdp"-->
+    <!--                android:src="@drawable/icon_round_bg"-->
+    <!--                android:layout_marginStart="@dimen/_10sdp"-->
+    <!--                app:layout_constraintTop_toTopOf="@id/etEmail"-->
+    <!--                app:layout_constraintStart_toStartOf="@id/etEmail"-->
+    <!--                app:layout_constraintBottom_toBottomOf="@id/etEmail"/>-->
+
+    <!--        <androidx.appcompat.widget.AppCompatImageView-->
+    <!--            android:layout_width="@dimen/_12sdp"-->
+    <!--            android:layout_height="@dimen/_12sdp"-->
+    <!--            android:src="@drawable/iv_email"-->
+    <!--            android:tint="@color/white"-->
+    <!--            app:layout_constraintTop_toTopOf="@id/bgEmail"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/bgEmail"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/bgEmail"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@id/bgEmail"/>-->
+
+
+    <!--        <androidx.appcompat.widget.AppCompatTextView-->
+    <!--            android:id="@+id/tvPassword"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/password"-->
+    <!--            android:textColor="@color/app_blue"-->
+    <!--            android:textSize="@dimen/_14ssp"-->
+    <!--            android:layout_marginTop="@dimen/_15sdp"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/etEmail"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/etEmail"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/etEmail"/>-->
+
+    <!--        <androidx.appcompat.widget.AppCompatEditText-->
+    <!--            android:id="@+id/etPassword"-->
+    <!--            style="@style/TextView.Regular"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="@dimen/_40sdp"-->
+    <!--            android:layout_marginTop="8dp"-->
+    <!--            android:background="@drawable/bg_edit_text"-->
+    <!--            android:hint="@string/enter_your_password"-->
+    <!--            android:inputType="textPassword"-->
+    <!--            android:paddingStart="@dimen/_45sdp"-->
+    <!--            android:paddingTop="@dimen/_3sdp"-->
+    <!--            android:paddingEnd="@dimen/_25sdp"-->
+    <!--            android:textColor="?attr/android:textColor"-->
+    <!--            android:textColorHint="?attr/android:textColorHint"-->
+    <!--            android:textSize="@dimen/_14ssp"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/tvPassword"-->
+    <!--            app:layout_constraintHorizontal_bias="1.0"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/tvPassword"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/tvPassword" />-->
+
+    <!--        <androidx.appcompat.widget.AppCompatImageView-->
+    <!--            android:id="@+id/showPassword"-->
+    <!--            android:layout_width="@dimen/_26ssp"-->
+    <!--            android:layout_height="@dimen/_26ssp"-->
+    <!--            android:padding="@dimen/_5sdp"-->
+    <!--            android:src="@drawable/iv_hide_password"-->
+    <!--            android:tint="@color/black"-->
+    <!--            android:layout_marginEnd="@dimen/_10sdp"-->
+    <!--            android:onClick="@{v -> vm.onClick(v)}"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/etPassword"-->
+    <!--            app:layout_constraintTop_toTopOf="@id/etPassword"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@id/etPassword"/>-->
+
+    <!--        <androidx.appcompat.widget.AppCompatImageView-->
+    <!--            android:layout_width="@dimen/_28sdp"-->
+    <!--            android:layout_height="@dimen/_28sdp"-->
+    <!--            android:src="@drawable/iv_password"-->
+    <!--            android:layout_marginStart="@dimen/_10sdp"-->
+    <!--            app:layout_constraintTop_toTopOf="@id/etPassword"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/etPassword"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@id/etPassword"/>-->
+
+
+    <!--        <androidx.appcompat.widget.AppCompatTextView-->
+    <!--            android:id="@+id/tvForgotPassword"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/forgot_pass"-->
+    <!--            android:layout_marginTop="@dimen/_15sdp"-->
+    <!--            android:onClick="@{v -> vm.onClick(v)}"-->
+    <!--            android:textColor="@color/app_blue"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/etPassword"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/etPassword"/>-->
+
+    <!--        <androidx.appcompat.widget.AppCompatTextView-->
+    <!--            android:id="@+id/tvLoginBtn"-->
+    <!--            style="@style/TextView.Medium"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="@dimen/_40sdp"-->
+    <!--            android:background="@drawable/bg_button"-->
+    <!--            android:text="@string/log_in"-->
+    <!--            android:onClick="@{v -> vm.onClick(v)}"-->
+    <!--            android:layout_marginTop="@dimen/_20sdp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:textSize="@dimen/_16ssp"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/etPassword"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/etPassword"/>-->
+
+    <!--        <androidx.appcompat.widget.AppCompatTextView-->
+    <!--            android:id="@+id/dontHaveAccount"-->
+    <!--            style="@style/TextView.Regular"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textColor="?attr/android:textColor"-->
+    <!--            android:textSize="@dimen/_14ssp"-->
+    <!--            android:layout_marginEnd="@dimen/_30sdp"-->
+    <!--            android:layout_marginTop="@dimen/_20sdp"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/tvLoginBtn"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/tvLoginBtn"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/tvLoginBtn"-->
+    <!--            android:text="@string/don_t_have_an_account"/>-->
+
+    <!--        <androidx.appcompat.widget.AppCompatTextView-->
+    <!--            android:id="@+id/signUp"-->
+    <!--            style="@style/TextView.Medium"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="@string/sign_up2"-->
+    <!--            android:onClick="@{v -> vm.onClick(v)}"-->
+    <!--            android:layout_marginStart="@dimen/_5sdp"-->
+    <!--            android:textSize="@dimen/_12ssp"-->
+    <!--            android:textColor="@color/app_blue"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/dontHaveAccount"-->
+    <!--            app:layout_constraintTop_toTopOf="@id/dontHaveAccount"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@id/dontHaveAccount"/>-->
+</layout>

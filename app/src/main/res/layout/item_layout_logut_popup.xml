@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.tech.arch.utils.BaseCustomDialog.Listener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_cards"
+        android:backgroundTint="@color/backgroundTintColor"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_20sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            style="@style/TextView.Header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:textColor="@color/black"
+            android:text="Are you sure you want to logout ?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCancel"
+            style="@style/TextView.Regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="Cancel"
+            android:gravity="center"
+            android:onClick="@{ v -> callback.onViewClick(v)}"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_button"
+            android:backgroundTint="@color/red_100"
+            android:textSize="@dimen/_12ssp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvConfirm"
+            app:layout_constraintTop_toBottomOf="@id/text" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvConfirm"
+            style="@style/TextView.Regular"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Confirm"
+            android:background="@drawable/bg_button"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/_12ssp"
+            android:onClick="@{ v -> callback.onViewClick(v)}"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvCancel"
+            app:layout_constraintTop_toTopOf="@id/tvCancel"
+            app:layout_constraintBottom_toBottomOf="@id/tvCancel"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
